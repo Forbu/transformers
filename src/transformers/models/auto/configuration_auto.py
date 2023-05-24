@@ -929,6 +929,8 @@ class AutoConfig:
         kwargs["name_or_path"] = pretrained_model_name_or_path
         trust_remote_code = kwargs.pop("trust_remote_code", False)
         config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+        print("config dict in auto config: ", config_dict)
+
         if "auto_map" in config_dict and "AutoConfig" in config_dict["auto_map"]:
             if not trust_remote_code:
                 raise ValueError(
@@ -937,7 +939,13 @@ class AutoConfig:
                     " set the option `trust_remote_code=True` to remove this error."
                 )
             class_ref = config_dict["auto_map"]["AutoConfig"]
+
+
+
             config_class = get_class_from_dynamic_module(class_ref, pretrained_model_name_or_path, **kwargs)
+
+            print("config class in autoconfig : ", config_class)
+
             return config_class.from_pretrained(pretrained_model_name_or_path, **kwargs)
         elif "model_type" in config_dict:
             config_class = CONFIG_MAPPING[config_dict["model_type"]]
