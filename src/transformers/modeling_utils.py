@@ -2334,6 +2334,9 @@ class PreTrainedModel(nn.Module, ModuleUtilsMixin, GenerationMixin, PushToHubMix
         if commit_hash is None:
             commit_hash = getattr(config, "_commit_hash", None)
 
+        print("commit_hash")
+        print(commit_hash)
+
         # This variable will flag if we're loading a sharded checkpoint. In this case the archive file is just the
         # index of the files.
         is_sharded = False
