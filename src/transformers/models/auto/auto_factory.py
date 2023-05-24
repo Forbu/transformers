@@ -453,6 +453,8 @@ class _BaseAutoModelClass:
             print(config)
             print("kwargs done")
             print(kwargs)
+            print("hub_kwargs done")
+            print(hub_kwargs)
 
             # if torch_dtype=auto was passed here, ensure to pass it on
             if kwargs_orig.get("torch_dtype", None) == "auto":
