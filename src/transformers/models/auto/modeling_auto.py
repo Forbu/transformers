@@ -1109,7 +1109,10 @@ _AutoModelWithLMHead = auto_class_update(_AutoModelWithLMHead, head_doc="languag
 
 
 class AutoModelForCausalLM(_BaseAutoModelClass):
+    print("AutoModelForCausalLM")
     _model_mapping = MODEL_FOR_CAUSAL_LM_MAPPING
+    print("AutoModelForCausalLM mapping")
+    print(_model_mapping)
 
 
 AutoModelForCausalLM = auto_class_update(AutoModelForCausalLM, head_doc="causal language modeling")

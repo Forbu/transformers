@@ -449,11 +449,17 @@ class _BaseAutoModelClass:
                 **kwargs,
             )
 
+            print("config done")
+            print(config)
+            print("kwargs done")
+            print(kwargs)
+
             # if torch_dtype=auto was passed here, ensure to pass it on
             if kwargs_orig.get("torch_dtype", None) == "auto":
                 kwargs["torch_dtype"] = "auto"
 
         if hasattr(config, "auto_map") and cls.__name__ in config.auto_map:
+            print("checkpint 1")
             if not trust_remote_code:
                 raise ValueError(
                     f"Loading {pretrained_model_name_or_path} requires you to execute the modeling file in that repo "
@@ -468,6 +474,7 @@ class _BaseAutoModelClass:
                 pretrained_model_name_or_path, *model_args, config=config, **hub_kwargs, **kwargs
             )
         elif type(config) in cls._model_mapping.keys():
+            print("checkpoint 2")
             model_class = _get_model_class(config, cls._model_mapping)
             return model_class.from_pretrained(
                 pretrained_model_name_or_path, *model_args, config=config, **hub_kwargs, **kwargs
