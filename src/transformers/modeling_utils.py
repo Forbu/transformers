@@ -2267,6 +2267,10 @@ class PreTrainedModel(nn.Module, ModuleUtilsMixin, GenerationMixin, PushToHubMix
         print("config is ")
         print(config)
 
+        # sleep one second to be sure we print something
+        import time
+        time.sleep(1)
+
         # Load config if we don't provide a configuration
         if not isinstance(config, PretrainedConfig):
             config_path = config if config is not None else pretrained_model_name_or_path
