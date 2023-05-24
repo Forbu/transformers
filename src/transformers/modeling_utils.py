@@ -2282,6 +2282,15 @@ class PreTrainedModel(nn.Module, ModuleUtilsMixin, GenerationMixin, PushToHubMix
                 _from_pipeline=from_pipeline,
                 **kwargs,
             )
+
+            print("config : ")
+            print(config)
+
+            print("model_kwargs :")
+            print(model_kwargs)
+
+
+
         else:
             model_kwargs = kwargs
 
@@ -2449,6 +2458,12 @@ class PreTrainedModel(nn.Module, ModuleUtilsMixin, GenerationMixin, PushToHubMix
                         "_commit_hash": commit_hash,
                     }
                     resolved_archive_file = cached_file(pretrained_model_name_or_path, filename, **cached_file_kwargs)
+
+                    print("resolved_archive_file :")
+                    print(resolved_archive_file)
+
+                    print("cached_file_kwargs")
+                    print(cached_file_kwargs)
 
                     # Since we set _raise_exceptions_for_missing_entries=False, we don't get an exception but a None
                     # result when internet is up, the repo and revision exist, but the file does not.
