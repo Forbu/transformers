@@ -469,6 +469,10 @@ class _BaseAutoModelClass:
                     "the option `trust_remote_code=True` to remove this error."
                 )
             class_ref = config.auto_map[cls.__name__]
+
+            print("class_ref done")
+            print(class_ref)
+
             model_class = get_class_from_dynamic_module(
                 class_ref, pretrained_model_name_or_path, **hub_kwargs, **kwargs
             )
