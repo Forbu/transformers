@@ -940,7 +940,7 @@ class AutoConfig:
                 )
             class_ref = config_dict["auto_map"]["AutoConfig"]
 
-
+            print("class ref in autoconfig : ", class_ref)
 
             config_class = get_class_from_dynamic_module(class_ref, pretrained_model_name_or_path, **kwargs)
 
