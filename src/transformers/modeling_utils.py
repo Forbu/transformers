@@ -2169,6 +2169,13 @@ class PreTrainedModel(nn.Module, ModuleUtilsMixin, GenerationMixin, PushToHubMix
         variant = kwargs.pop("variant", None)
         use_safetensors = kwargs.pop("use_safetensors", None if is_safetensors_available() else False)
 
+        print("config is ")
+        print(config)
+
+        # sleep one second to be sure we print something
+        import time
+        time.sleep(1)
+
         if is_bitsandbytes_available():
             is_8bit_serializable = version.parse(importlib_metadata.version("bitsandbytes")) > version.parse("0.37.2")
         else:
